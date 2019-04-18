@@ -7,6 +7,7 @@ import admin.Customer;
 import admin.Employee;
 import admin.Menu;
 import admin.Salnum;
+import admin.Type;
 import admin.Vip;
 
 public interface restService {
@@ -62,6 +63,10 @@ public interface restService {
 	public List<Menu> selectAllMenu();
 	//根据id查询 
 	public Menu selectMenuById(int id);
+	//查询所有菜品类别 id 名称
+	public List<Type> selectAllType();
+	//根据id查找具体菜类别
+	public Type selectTypeById(int id);
 	//查询菜品月销量 降序 list
 	public List<Salnum> selectAllNum();
 	//打印小票抬头
