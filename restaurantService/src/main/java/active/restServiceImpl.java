@@ -5,7 +5,7 @@ import java.util.Map;
 
 import admin.Customer;
 import admin.Employee;
-import admin.Menu;
+import admin.Menus;
 import admin.Salnum;
 import admin.Type;
 import admin.Vip;
@@ -35,6 +35,7 @@ public class restServiceImpl implements restService{
 	private TicketBiz ticketBiz;
 	private TypeBiz typeBiz;
 	private VipBiz vipBiz;
+	private Object customerBiztBiz;
 	
 	
 	/**
@@ -121,14 +122,14 @@ public class restServiceImpl implements restService{
 		return this.customerBiz.addCustomer(c);
 	}
 
-	public String selectCustomerById(int id) {
+	public Customer selectCustomerById(int id) {
 		
 		return this.customerBiz.selectCustomerById(id);
 	}
 
-	public String updateCustomerById(int id) {
+	public String updateCustomerById(Customer c) {
 		
-		return this.customerBiz.updateCustomerById(id);
+		return this.customerBiz.updateCustomerById(c);
 	}
 
 	public String addVip(Vip v) {
@@ -146,17 +147,17 @@ public class restServiceImpl implements restService{
 		return this.vipBiz.selectVipById(id);
 	}
 
-	public String updateVipById(int id) {
+	public String updateVipById(Vip v) {
 		
-		return this.vipBiz.updateVipById(id);
+		return this.vipBiz.updateVipById(v);
 	}
 
-	public Vip selectAllVip() {
+	public List<Vip> selectAllVip() {
 		
 		return this.vipBiz.selectAllVip();
 	}
 
-	public String addMenu(Menu m) {
+	public String addMenu(Menus m) {
 		
 		return this.menuBiz.addMenu(m);
 	}
@@ -166,17 +167,17 @@ public class restServiceImpl implements restService{
 		return this.menuBiz.deleteMenu(id);
 	}
 
-	public String upadteMenu(int id) {
+	public String upadteMenu(Menus m) {
 		
-		return this.menuBiz.upadteMenu(id);
+		return this.menuBiz.upadteMenu(m);
 	}
 
-	public List<Menu> selectAllMenu() {
+	public List<Menus> selectAllMenu() {
 		
 		return this.menuBiz.selectAllMenu();
 	}
 
-	public Menu selectMenuById(int id) {
+	public Menus selectMenuById(int id) {
 		
 		return this.menuBiz.selectMenuById(id);
 	}
@@ -199,6 +200,17 @@ public class restServiceImpl implements restService{
 	public Type selectTypeById(int id) {
 		
 		return this.typeBiz.selectTypeById(id);
+	}
+
+	public List<Menus> selectAllMuByTp(int id) {
+		
+		return this.menuBiz.selectAllMuByTp(id);
+	}
+
+
+	public String deleteCustomer(int id) {
+		// TODO Auto-generated method stub
+		return this.customerBiz.deleteCustomerById(id);
 	}
 	
 }

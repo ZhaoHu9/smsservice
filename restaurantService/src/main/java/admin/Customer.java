@@ -3,7 +3,7 @@ package admin;
 public class Customer {
 	private int curid;
 	private String curname;
-	private char cuesex;
+	private String cuesex;
 	private int curphone;
 	
 	/**
@@ -18,13 +18,13 @@ public class Customer {
 	 * @param cuesex
 	 * @param curphone
 	 */
-	/*public Customer(int curid, String curname, char cuesex, int curphone) {
+	public Customer(int curid, String curname, String cuesex, int curphone) {
 		super();
 		this.curid = curid;
 		this.curname = curname;
 		this.cuesex = cuesex;
 		this.curphone = curphone;
-	}*/
+	}
 	public int getCurid() {
 		return curid;
 	}
@@ -37,10 +37,10 @@ public class Customer {
 	public void setCurname(String curname) {
 		this.curname = curname;
 	}
-	public char getCuesex() {
+	public String getCuesex() {
 		return cuesex;
 	}
-	public void setCuesex(char cuesex) {
+	public void setCuesex(String cuesex) {
 		this.cuesex = cuesex;
 	}
 	public int getCurphone() {

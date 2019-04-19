@@ -2,12 +2,12 @@ package biz.impl;
 
 import java.util.List;
 
-import admin.Menu;
+import admin.Menus;
 import biz.MenuBiz;
 
 public class MenuBizImpl implements MenuBiz {
 
-	public String addMenu(Menu m) {
+	public String addMenu(Menus m) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -17,17 +17,22 @@ public class MenuBizImpl implements MenuBiz {
 		return null;
 	}
 
-	public String upadteMenu(int id) {
+	public String upadteMenu(Menus m) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public List<Menu> selectAllMenu() {
+	public List<Menus> selectAllMenu() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Menu selectMenuById(int id) {
+	public Menus selectMenuById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Menus> selectAllMuByTp(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import admin.Customer;
 import admin.Employee;
-import admin.Menu;
+import admin.Menus;
 import admin.Salnum;
 import admin.Type;
 import admin.Vip;
@@ -39,10 +39,12 @@ public interface restService {
 	public List<Customer> selectAllCustimer();
 	//录入客户信息
 	public String addCustomer(Customer c);
+	//根据id查找顾客
+	public Customer selectCustomerById(int id);
 	//删除客户信息 通过id
-	public String selectCustomerById(int id);
+	public String deleteCustomer(int id);
 	//修改客户信息
-	public String updateCustomerById(int id);
+	public String updateCustomerById(Customer c);
 	//录入vip信息
 	public String addVip(Vip v);
 	//删除vip信息
@@ -50,23 +52,25 @@ public interface restService {
 	//根据id查询vip信息
 	public Vip selectVipById(int id);
 	//修改vip信息
-	public String updateVipById(int id);
+	public String updateVipById(Vip v);
 	//查询vip信息 所有
-	public Vip selectAllVip();
+	public List<Vip> selectAllVip();
 	//录入菜品，价格，类型
-	public String addMenu(Menu m);
+	public String addMenu(Menus m);
 	//删除菜品
 	public String deleteMenu(int id);
 	//修改菜品，价格，类型
-	public String upadteMenu(int id);
+	public String upadteMenu(Menus m);
 	//查询所有菜品 list
-	public List<Menu> selectAllMenu();
+	public List<Menus> selectAllMenu();
 	//根据id查询 
-	public Menu selectMenuById(int id);
+	public Menus selectMenuById(int id);
 	//查询所有菜品类别 id 名称
 	public List<Type> selectAllType();
 	//根据id查找具体菜类别
 	public Type selectTypeById(int id);
+	//根据菜品种类id查询所有菜品
+	public List<Menus> selectAllMuByTp(int id);
 	//查询菜品月销量 降序 list
 	public List<Salnum> selectAllNum();
 	//打印小票抬头

@@ -36,5 +36,9 @@ public class Type {
 	public void setTypename(String typename) {
 		this.typename = typename;
 	}
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.typeid+"\t"+this.typename;
+	}
 }

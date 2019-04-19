@@ -28,9 +28,8 @@ public class Ticket implements Serializable{
 	 * @param date
 	 * @param uuid
 	 */
-	public Ticket(int id, int empid, Date date, UUID uuid) {
+	public Ticket( int empid, Date date, UUID uuid) {
 		super();
-		this.id = id;
 		this.empid = empid;
 		this.date = date;
 		this.uuid = uuid;

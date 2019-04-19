@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Employee implements Serializable{
 	private int empid;
 	private String empname;
-	private char empsex;
+	private String empsex;
 	private int empphone;
 	private int emplevel;
 	private String emppassword;
@@ -24,7 +24,7 @@ public class Employee implements Serializable{
 	 * @param empphone
 	 * @param emplevel
 	 */
-	public Employee(int empid, String empname, char empsex, int empphone, int emplevel, String emppassword) {
+	public Employee(int empid, String empname, String empsex, int empphone, int emplevel, String emppassword) {
 		super();
 		this.empid = empid;
 		this.empname = empname;
@@ -50,11 +50,11 @@ public class Employee implements Serializable{
 		this.empname = empname;
 	}
 
-	public char getEmpsex() {
+	public String getEmpsex() {
 		return empsex;
 	}
 
-	public void setEmpsex(char empsex) {
+	public void setEmpsex(String empsex) {
 		this.empsex = empsex;
 	}
 

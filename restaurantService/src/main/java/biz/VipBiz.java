@@ -1,5 +1,7 @@
 package biz;
 
+import java.util.List;
+
 import admin.Vip;
 
 public interface VipBiz {
@@ -10,7 +12,7 @@ public interface VipBiz {
 	//根据id查询vip信息
 	public Vip selectVipById(int id);
 	//修改vip信息
-	public String updateVipById(int id);
+	public String updateVipById(Vip v);
 	//查询vip信息 所有
-	public Vip selectAllVip();
+	public List<Vip> selectAllVip();
 }

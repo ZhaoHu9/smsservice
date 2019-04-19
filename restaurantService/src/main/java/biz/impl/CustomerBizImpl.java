@@ -22,14 +22,18 @@ public class CustomerBizImpl implements CustomerBiz {
 		return null;
 	}
 
-	public String selectCustomerById(int id) {
+	public String updateCustomerById(Customer c) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String updateCustomerById(int id) {
+	public Customer selectCustomerById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	public String deleteCustomerById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

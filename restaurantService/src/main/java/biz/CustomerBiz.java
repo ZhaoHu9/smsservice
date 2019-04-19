@@ -11,8 +11,10 @@ public interface CustomerBiz {
 	public List<Customer> selectAllCustimer();
 	//录入客户信息
 	public String addCustomer(Customer c);
-	//删除客户信息 通过id
-	public String selectCustomerById(int id);
+	//查找客户信息 通过id
+	public Customer selectCustomerById(int id);
+	//删除客户信息
+	public String deleteCustomerById(int id);
 	//修改客户信息
-	public String updateCustomerById(int id);
+	public String updateCustomerById(Customer c);
 }

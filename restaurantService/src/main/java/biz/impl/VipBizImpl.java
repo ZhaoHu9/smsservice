@@ -1,5 +1,7 @@
 package biz.impl;
 
+import java.util.List;
+
 import admin.Vip;
 import biz.VipBiz;
 
@@ -20,12 +22,12 @@ public class VipBizImpl implements VipBiz{
 		return null;
 	}
 
-	public String updateVipById(int id) {
+	public String updateVipById(Vip v) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Vip selectAllVip() {
+	public List<Vip> selectAllVip() {
 		// TODO Auto-generated method stub
 		return null;
 	}
