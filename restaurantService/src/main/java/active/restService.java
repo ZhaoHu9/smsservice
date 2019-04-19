@@ -1,5 +1,6 @@
 package active;
 
+import java.security.PublicKey;
 import java.util.List;
 
 import java.util.Map;
@@ -7,6 +8,7 @@ import admin.Customer;
 import admin.Employee;
 import admin.Menus;
 import admin.Salnum;
+import admin.Ticket;
 import admin.Type;
 import admin.Vip;
 
@@ -73,6 +75,16 @@ public interface restService {
 	public List<Menus> selectAllMuByTp(int id);
 	//查询菜品月销量 降序 list
 	public List<Salnum> selectAllNum();
+	//插入销量
+	public String addSal(Salnum s);
+	//更改销量
+	public String updateSal(Salnum s);
+	//查询销量是否存在
+	public boolean selectSal(int id);
 	//打印小票抬头
 	public void printTicket(int id);
+	//录入小票抬头
+	public String addTicket(Ticket t);
+	//返回最大id数+1；
+	public int finTicketid();
 }

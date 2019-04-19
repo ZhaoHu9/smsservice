@@ -3,32 +3,43 @@ package biz.impl;
 import java.util.Map;
 
 import biz.CurtBiz;
+import dao.CurtDao;
+import dao.impl.CurtDaoImpl;
 
 public class CurtBizImpl implements CurtBiz {
+	private CurtDao curtDao;
+	
+	/**
+	 * @param curtDao
+	 */
+	public CurtBizImpl() {
+		super();
+		this.curtDao = new CurtDaoImpl();
+	}
 
 	public String addCurt(int id, Map<Integer, Integer> m) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.curtDao.insertCurt(id, m)?"添加成功":"添加失败";
 	}
 
 	public String deleteCurt(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.curtDao.removeCurt(id)?"删除成功":"删除失败";
 	}
 
 	public String deleteAllCurt() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.curtDao.removeAllCurt()?"删除成功":"删除失败";
 	}
 
 	public Map<Integer, Integer> selectAllCurt() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.curtDao.findAllCurt();
 	}
 
 	public String updateCurt(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.curtDao.modifyCurt(id)?"修改成功":"修改失败";
 	}
 
 }

@@ -7,6 +7,7 @@ import admin.Customer;
 import admin.Employee;
 import admin.Menus;
 import admin.Salnum;
+import admin.Ticket;
 import admin.Type;
 import admin.Vip;
 import biz.CurtBiz;
@@ -209,8 +210,34 @@ public class restServiceImpl implements restService{
 
 
 	public String deleteCustomer(int id) {
-		// TODO Auto-generated method stub
+		
 		return this.customerBiz.deleteCustomerById(id);
+	}
+
+	public String addTicket(Ticket t) {
+	
+		return this.ticketBiz.addTicket(t);
+	}
+
+
+	public String addSal(Salnum s) {
+		// TODO Auto-generated method stub
+		return this.salnumBiz.addSal(s);
+	}
+
+	public int finTicketid() {
+		// TODO Auto-generated method stub
+		return this.ticketBiz.findTicketid();
+	}
+
+	public String updateSal(Salnum s) {
+		// TODO Auto-generated method stub
+		return this.salnumBiz.updateSal(s);
+	}
+
+	public boolean selectSal(int id) {
+		// TODO Auto-generated method stub
+		return this.salnumBiz.selectSal(id);
 	}
 	
 }

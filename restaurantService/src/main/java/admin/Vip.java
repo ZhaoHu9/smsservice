@@ -25,8 +25,9 @@ public class Vip implements Serializable{
 	 * @param vipdiscount
 	 * @param vipdalance
 	 */
-	public Vip( int curid, int viplevel, int vipstate, double vipdiscount, double vipdalance) {
+	public Vip( int vipid,int curid, int viplevel, int vipstate, double vipdiscount, double vipdalance) {
 		super();
+		this.vipid = vipid;
 		this.curid = curid;
 		this.viplevel = viplevel;
 		this.vipstate = vipstate;

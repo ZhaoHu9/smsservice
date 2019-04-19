@@ -31,9 +31,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 	public boolean insertEmployee(Employee e) {
 		this.db = new DBUtil();
-		String sql = "insert into employee values(序列,?,?,?,?,?)";
+		String sql = "insert into employee values(?,?,?,?,?,?)";
 		try {
-			int i = this.db.update(sql, e.getEmpname(),e.getEmpsex(),e.getEmpphone(),e.getEmplevel(),e.getEmppassword());
+			int i = this.db.update(sql, e.getEmpid(),e.getEmpname(),e.getEmpsex(),e.getEmpphone(),e.getEmplevel(),e.getEmppassword());
 			return i>0;
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block

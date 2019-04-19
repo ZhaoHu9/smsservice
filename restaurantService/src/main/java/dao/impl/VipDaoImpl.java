@@ -79,7 +79,7 @@ public class VipDaoImpl implements VipDao {
 			ResultSet rs = this.db.query(sql);
 			List<Vip> list = new ArrayList<Vip>();
 			while(rs.next()) {
-				list.add(new Vip(rs.getInt("vipid"), rs.getInt("curid"), rs.getInt("viplevel"), rs.getInt("vipstate"), rs.getInt("vipdiscount"),rs.getDouble("vipdalance")));
+				list.add(new Vip(rs.getInt("vipid"),rs.getInt("curid"), rs.getInt("viplevel"), rs.getInt("vipstate"), rs.getInt("vipdiscount"),rs.getDouble("vipdalance")));
 			}
 			return list;
 		} catch (SQLException e) {

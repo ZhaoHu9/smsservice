@@ -11,7 +11,7 @@ public class Ticket implements Serializable{
 	private Date date;
 	//打印编号
 	private UUID uuid;
-	private int vipid;
+	private Integer vipid;
 	
 	/**
 	 * 
@@ -19,8 +19,21 @@ public class Ticket implements Serializable{
 	public Ticket() {
 		super();
 	}
-
-
+	/**
+	 * @param id
+	 * @param empid
+	 * @param date
+	 * @param uuid
+	 * @param vipid
+	 */
+	public Ticket(int id, int empid, Date date, UUID uuid, Integer vipid) {
+		super();
+		this.id = id;
+		this.empid = empid;
+		this.date = date;
+		this.uuid = uuid;
+		this.vipid = vipid;
+	}
 
 	/**
 	 * @param id
@@ -28,15 +41,13 @@ public class Ticket implements Serializable{
 	 * @param date
 	 * @param uuid
 	 */
-	public Ticket( int empid, Date date, UUID uuid) {
+	public Ticket(int id, int empid, Date date, UUID uuid) {
 		super();
+		this.id = id;
 		this.empid = empid;
 		this.date = date;
 		this.uuid = uuid;
 	}
-
-
-
 	public int getId() {
 		return id;
 	}

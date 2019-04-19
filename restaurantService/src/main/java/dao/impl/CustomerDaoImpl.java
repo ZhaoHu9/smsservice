@@ -51,9 +51,9 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	public boolean insertCustomer(Customer c) {
 		this.db = new DBUtil();
-		String sql = "insert into customer values(序列,?,?,?)";
+		String sql = "insert into customer values(?,?,?,?)";
 		try {
-			int i = this.db.update(sql, c.getCurname(),c.getCuesex(),c.getCurphone());
+			int i = this.db.update(sql, c.getCurid(),c.getCurname(),c.getCuesex(),c.getCurphone());
 			return i>0;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

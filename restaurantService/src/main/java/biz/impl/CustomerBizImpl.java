@@ -4,36 +4,47 @@ import java.util.List;
 
 import admin.Customer;
 import biz.CustomerBiz;
+import dao.CustomerDao;
+import dao.impl.CustomerDaoImpl;
 
 public class CustomerBizImpl implements CustomerBiz {
+	private CustomerDao customerDao;
+	
+	/**
+	 * 
+	 */
+	public CustomerBizImpl() {
+		super();
+		this.customerDao = new CustomerDaoImpl();
+	}
 
 	public List<Customer> selectAllCustimerId() {
 		// TODO Auto-generated method stub
-		return null;
+		return customerDao.findAllCustimerId();
 	}
 
 	public List<Customer> selectAllCustimer() {
 		// TODO Auto-generated method stub
-		return null;
+		return customerDao.findAllCustimer();
 	}
 
 	public String addCustomer(Customer c) {
 		// TODO Auto-generated method stub
-		return null;
+		return this.customerDao.insertCustomer(c)?"添加成功":"添加失败";
 	}
 
 	public String updateCustomerById(Customer c) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.customerDao.modifyCustomerById(c)?"修改成功":"修改失败";
 	}
 
 	public Customer selectCustomerById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.customerDao.findCustomerById(id);
 	}
 
 	public String deleteCustomerById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.customerDao.removeCustomerById(id)?"删除成功":"删除失败";
 	}
 }
