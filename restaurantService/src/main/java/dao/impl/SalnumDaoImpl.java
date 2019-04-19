@@ -32,11 +32,41 @@ public class SalnumDaoImpl implements SalnumDao {
 		String sql = "insert into salnum values(?,?)";
 		try {
 			int i = this.db.update(sql, s.getEatid(),s.getSalnum());
-			return false;
+			return i>0;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return false;
+		}finally {
+			this.db.closed();
 		}
-		return false;
+	}
+	public boolean findSal(int id) {
+		this.db = new DBUtil();
+		String sql ="select salnum from salnum where eatid="+id;
+		try {
+			ResultSet rs = this.db.query(sql);
+			return rs.next();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}finally {
+			this.db.closed();
+		}
+	}
+	public boolean modifySal(Salnum s) {
+		this.db = new DBUtil();
+		String sql ="update salnum set salnum =? where eatid =?";
+		try {
+			int i = this.db.update(sql, s.getSalnum(),s.getEatid());
+			return i>0;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}finally {
+			this.db.closed();
+		}
 	}
 }

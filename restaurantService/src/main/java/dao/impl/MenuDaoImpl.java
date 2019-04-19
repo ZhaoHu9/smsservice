@@ -12,9 +12,9 @@ public class MenuDaoImpl implements MenuDao {
 	private DBUtil db;
 	public boolean insertMenu(Menus m) {
 		this.db = new DBUtil();
-		String sql = "insert into menu values(序列,?,?,?,?)";
+		String sql = "insert into menu values(?,?,?,?,?)";
 		try {
-			int i = this.db.update(sql, m.getEatname(),m.getTypeid(),m.getEatlevel(),m.getEatstock());
+			int i = this.db.update(sql, m.getEatid(),m.getEatname(),m.getTypeid(),m.getEatlevel(),m.getEatstock());
 			return i>0;
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
@@ -57,12 +57,12 @@ public class MenuDaoImpl implements MenuDao {
 
 	public List<Menus> findAllMenu() {
 		this.db = new DBUtil();
-		String sql = "select * from menu";
+		String sql = "select * from menu m,price p where m.eatid = p.eatid(+)";
 		try {
 			ResultSet rs = this.db.query(sql);
 			List<Menus> list = new ArrayList<Menus>();
 			while(rs.next()) {
-				list.add(new Menus(rs.getInt("eatid"), rs.getString("eatname"), rs.getInt("typeid"), rs.getInt("eatlevel"), rs.getInt("eatstock"), rs.getDouble("eatstock")));
+				list.add(new Menus(rs.getInt("eatid"), rs.getString("eatname"), rs.getInt("typeid"), rs.getInt("eatlevel"), rs.getInt("eatstock"), rs.getDouble("eatprice")));
 			}
 			return list;
 		} catch (SQLException e) {
@@ -74,11 +74,11 @@ public class MenuDaoImpl implements MenuDao {
 
 	public Menus findMenuById(int id) {
 		this.db = new DBUtil();
-		String sql = "select * from menu where eatid = "+id;
+		String sql = "select * from menu m,price p where (m.typeid = ?) and m.eatid = p.eatid(+)";
 		try {
-			ResultSet rs = this.db.query(sql);
+			ResultSet rs = this.db.query(sql,id);
 			if (rs.next()) {
-				return new Menus(rs.getInt("eatid"), rs.getString("eatname"), rs.getInt("typeid"), rs.getInt("eatlevel"), rs.getInt("eatstock"), rs.getDouble("eatstock"));
+				return new Menus(rs.getInt("eatid"), rs.getString("eatname"), rs.getInt("typeid"), rs.getInt("eatlevel"), rs.getInt("eatstock"), rs.getDouble("eatprice"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -88,6 +88,25 @@ public class MenuDaoImpl implements MenuDao {
 			this.db.closed();
 		}
 		return null;
+	}
+
+	public List<Menus> findAllMuBuTp(int id) {
+		this.db = new DBUtil();
+		String sql = "select * from menu m,price p where (m.typeid = ?) and m.eatid = p.eatid(+)";
+		try {
+			ResultSet rs = this.db.query(sql ,id);
+			List<Menus> list = new ArrayList<Menus>();
+			while(rs.next()) {
+				list.add(new Menus(rs.getInt("eatid"), rs.getString("eatname"), rs.getInt("typeid"), rs.getInt("eatlevel"), rs.getInt("eatstock"), rs.getDouble("eatprice")));
+			}
+			return list;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}finally {
+			this.db.closed();
+		}
 	}
 
 }

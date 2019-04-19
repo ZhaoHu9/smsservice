@@ -19,17 +19,17 @@ public class CustomerBizImpl implements CustomerBiz {
 	}
 
 	public List<Customer> selectAllCustimerId() {
-		// TODO Auto-generated method stub
+	
 		return customerDao.findAllCustimerId();
 	}
 
 	public List<Customer> selectAllCustimer() {
-		// TODO Auto-generated method stub
+	
 		return customerDao.findAllCustimer();
 	}
 
 	public String addCustomer(Customer c) {
-		// TODO Auto-generated method stub
+	
 		return this.customerDao.insertCustomer(c)?"添加成功":"添加失败";
 	}
 

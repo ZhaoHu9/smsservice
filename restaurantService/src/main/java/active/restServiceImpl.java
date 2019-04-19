@@ -221,23 +221,38 @@ public class restServiceImpl implements restService{
 
 
 	public String addSal(Salnum s) {
-		// TODO Auto-generated method stub
+
 		return this.salnumBiz.addSal(s);
 	}
 
 	public int finTicketid() {
-		// TODO Auto-generated method stub
+
 		return this.ticketBiz.findTicketid();
 	}
 
 	public String updateSal(Salnum s) {
-		// TODO Auto-generated method stub
+
 		return this.salnumBiz.updateSal(s);
 	}
 
 	public boolean selectSal(int id) {
-		// TODO Auto-generated method stub
+
 		return this.salnumBiz.selectSal(id);
+	}
+
+	public String addType(Type t) {
+
+		return this.typeBiz.addType(t);
+	}
+
+	public String updateTypeById(Type t) {
+
+		return this.typeBiz.updateTypeById(t);
+	}
+
+	public String deleteTypeById(int id) {
+
+		return this.typeBiz.deleteTypeById(id);
 	}
 	
 }

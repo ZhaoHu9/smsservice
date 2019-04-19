@@ -13,7 +13,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	private DBUtil db;
 	public Employee login(int id, String password) {
 		this.db = new DBUtil();
-		String sql = "select * from employee where id = ? and password = ?";
+		String sql = "select * from employee where empid = ? and emppassword = ?";
 		try {
 			ResultSet rs = this.db.query(sql, id,password);
 			if(rs.next()) {

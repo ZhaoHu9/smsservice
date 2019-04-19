@@ -9,4 +9,11 @@ public interface TypeBiz {
 	public List<Type> selectAllType();
 	//根据id查找具体菜类别
 	public Type selectTypeById(int id);
+	//添加
+	public String addType(Type t);
+	//修改
+	public String updateTypeById(Type t);
+	//删除
+	public String deleteTypeById(int id);
+	
 }

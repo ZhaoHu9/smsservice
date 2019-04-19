@@ -19,23 +19,23 @@ public class SalnumBizImpl implements SalnumBiz {
 	}
 
 	public List<Salnum> selectAllNum() {
-		// TODO Auto-generated method stub
+
 		return this.salnumDao.findAllNum();
 	}
 
 	public String addSal(Salnum s) {
-		// TODO Auto-generated method stub
+
 		return this.salnumDao.insertSal(s)?"添加成功":"添加失败";
 	}
 
 	public boolean selectSal(int id) {
-		// TODO Auto-generated method stub
-		return false;
+
+		return this.salnumDao.findSal(id);
 	}
 
 	public String updateSal(Salnum s) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return this.salnumDao.modifySal(s)?"修改成功":"修改失败";
 	}
 
 }

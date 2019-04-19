@@ -1,6 +1,8 @@
 package admin;
 
-public class Customer {
+import java.io.Serializable;
+
+public class Customer implements Serializable{
 	private int curid;
 	private String curname;
 	private String cuesex;

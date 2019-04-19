@@ -67,10 +67,16 @@ public interface restService {
 	public List<Menus> selectAllMenu();
 	//根据id查询 
 	public Menus selectMenuById(int id);
+	//录入菜品类别
+	public String addType(Type t);
 	//查询所有菜品类别 id 名称
 	public List<Type> selectAllType();
 	//根据id查找具体菜类别
 	public Type selectTypeById(int id);
+	//根据id修改菜品类别
+	public String updateTypeById(Type t);
+	//根据id删除菜品类别
+	public String deleteTypeById(int id);
 	//根据菜品种类id查询所有菜品
 	public List<Menus> selectAllMuByTp(int id);
 	//查询菜品月销量 降序 list

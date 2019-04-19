@@ -15,4 +15,6 @@ public interface MenuDao {
 	public List<Menus> findAllMenu();
 	//根据id查询 
 	public Menus findMenuById(int id);
+	//根据id查找所有菜品类别
+	public List<Menus> findAllMuBuTp(int id);
 }

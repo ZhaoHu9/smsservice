@@ -21,13 +21,13 @@ public class TicketBizImpl implements TicketBiz {
 	}
 
 	public String addTicket(Ticket t) {
-		// TODO Auto-generated method stub
+
 		return this.ticketDao.insertTicket(t)?"添加成功":"添加失败";
 	}
 
 
 	public int findTicketid() {
-		// TODO Auto-generated method stub
+
 		return this.ticketDao.selectTicketid();
 	}
 

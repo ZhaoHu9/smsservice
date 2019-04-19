@@ -45,4 +45,49 @@ public class TypeDaoImpl implements TypeDao {
 		return null;
 	}
 
+	public boolean insertType(Type t) {
+		this.db = new DBUtil();
+		String sql = "insert into eattype values(?,?)";
+		try {
+			int i = this.db.update(sql, t.getTypename(),t.getTypeid());
+			return i>0;
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			return false;
+		}finally {
+			this.db.closed();
+		}
+	}
+
+	public boolean removeTypeById(int id) {
+		this.db = new DBUtil();
+		String sql = "delete from eattype where typeid = "+id;
+		try {
+			int i = this.db.update(sql);
+			return i>0;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}finally {
+			this.db.closed();
+		}
+	}
+
+	public boolean modifyTypeById(Type t) {
+		this.db = new DBUtil();
+		String sql = "update eattype set typeid =?,typename =? where eatid ="+t.getTypeid();
+		try {
+			int i = this.db.update(sql, t.getTypeid(),t.getTypename());
+			return i>0;
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			return false;
+		}finally {
+			this.db.closed();
+		}
+	}
+
 }
