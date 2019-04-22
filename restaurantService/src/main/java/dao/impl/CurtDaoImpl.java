@@ -2,6 +2,7 @@ package dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -50,12 +51,12 @@ public class CurtDaoImpl implements CurtDao {
 		return false;
 	}
 
-	public Map<Integer, Integer> findAllCurt() {
+	public Map<Integer, Integer> findAllCurt(int id) {
 		this.db = new DBUtil();
-		String sql ="select * from curt";
+		String sql ="select * from curt where ticketid = "+id;
 		try {
 			ResultSet rs = this.db.query(sql);
-			Map<Integer, Integer> map = null ;
+			Map<Integer, Integer> map = new HashMap<Integer, Integer>() ;
 			while(rs.next()) {
 				map.put(rs.getInt("eatid"), rs.getInt("eatnum"));
 			}

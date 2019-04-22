@@ -32,9 +32,9 @@ public class CurtBizImpl implements CurtBiz {
 		return this.curtDao.removeAllCurt()?"删除成功":"删除失败";
 	}
 
-	public Map<Integer, Integer> selectAllCurt() {
+	public Map<Integer, Integer> selectAllCurt(int id) {
 		
-		return this.curtDao.findAllCurt();
+		return this.curtDao.findAllCurt(id);
 	}
 
 	public String updateCurt(int id) {

@@ -28,7 +28,7 @@ public class VipDaoImpl implements VipDao {
 //冻结
 	public boolean removeVipById(int id) {
 		this.db = new DBUtil();
-		String sql ="update viptable set viplevel = 0";
+		String sql ="update viptable set vipstate = 0 where vipid ="+id;
 		try {
 			int i = this.db.update(sql);
 			return i>0;
@@ -59,9 +59,9 @@ public class VipDaoImpl implements VipDao {
 //修改
 	public boolean modifyVipById(Vip v) {
 		this.db = new DBUtil();
-		String sql ="update viptable set vipdalance =? where vipid ="+v.getVipid();
+		String sql ="update viptable set curid =?,viplevel =?,vipstate =?,vipdiscount =?,vipdalance =? where vipid ="+v.getVipid();
 		try {
-			int i = this.db.update(sql,v.getVipdalance());
+			int i = this.db.update(sql,v.getCurid(),v.getViplevel(),v.getVipstate(),v.getVipdiscount(),v.getVipdalance());
 			return i>0;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -79,7 +79,7 @@ public class VipDaoImpl implements VipDao {
 			ResultSet rs = this.db.query(sql);
 			List<Vip> list = new ArrayList<Vip>();
 			while(rs.next()) {
-				list.add(new Vip(rs.getInt("vipid"),rs.getInt("curid"), rs.getInt("viplevel"), rs.getInt("vipstate"), rs.getInt("vipdiscount"),rs.getDouble("vipdalance")));
+				list.add(new Vip(rs.getInt("vipid"),rs.getInt("curid"), rs.getInt("viplevel"), rs.getInt("vipstate"), rs.getDouble("vipdiscount"),rs.getDouble("vipdalance")));
 			}
 			return list;
 		} catch (SQLException e) {

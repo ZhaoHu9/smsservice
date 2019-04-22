@@ -73,9 +73,9 @@ public class restServiceImpl implements restService{
 		return this.curtBiz.deleteAllCurt();
 	}
 
-	public Map<Integer, Integer> selectAllCurt() {
+	public Map<Integer, Integer> selectAllCurt(int id) {
 
-		return this.curtBiz.selectAllCurt();
+		return this.curtBiz.selectAllCurt(id);
 	}
 
 	public String updateCurt(int id) {
@@ -188,8 +188,8 @@ public class restServiceImpl implements restService{
 		return this.salnumBiz.selectAllNum();
 	}
 
-	public void printTicket(int id) {
-		this.ticketBiz.printTicket(id);
+	public List<Ticket> printTicket() {
+		return this.ticketBiz.printTicket();
 
 	}
 

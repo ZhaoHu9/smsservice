@@ -56,7 +56,7 @@ public class Mytest {
 		TicketDao ticketDao = new TicketDaoImpl();
 		try {
 			Date d = sd.parse(sd.format(new Date()));
-			Ticket t = new Ticket(10001,d,UUID.randomUUID(),132);
+			Ticket t = new Ticket(10001,d,UUID.randomUUID());
 			boolean b = ticketDao.insertTicket(t);
 			System.err.println(sd.format(t.getDate()));
 			System.out.println(b);
@@ -119,4 +119,14 @@ public class Mytest {
 		map.put(1, 1);
 		System.out.println(curtDao.insertCurt(map));
 	}
+	
+	@Test
+	public void selectCusId() {
+		int i = 111;
+		CustomerDao customerDao = new CustomerDaoImpl();
+		Customer c = customerDao.findCustomerById(i);
+		System.out.println(c);
+	}
+	
+	
 }

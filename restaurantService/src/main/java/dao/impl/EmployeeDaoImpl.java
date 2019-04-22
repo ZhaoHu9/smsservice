@@ -61,9 +61,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 	public boolean modifyEmployee(Employee e) {
 		this.db = new DBUtil();
-		String sql = "update employee set empid =?,empname =?,empsex =?,empphone =?,emplevel =?,emppassword =?";
+		String sql = "update employee set empname =?,empsex =?,empphone =?,emplevel =?,emppassword =? where empid = "+e.getEmpid();
 		try {
-			int i = this.db.update(sql, e.getEmpid(),e.getEmpname(),e.getEmpsex(),e.getEmpphone(),e.getEmplevel(),e.getEmppassword());
+			int i = this.db.update(sql, e.getEmpname(),e.getEmpsex(),e.getEmpphone(),e.getEmplevel(),e.getEmppassword());
 			return i>0;
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
@@ -76,7 +76,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 	public Employee findEmployeeById(int id) {
 		this.db = new DBUtil();
-		String sql = "select * from employee where id = "+id;
+		String sql = "select * from employee where empid = "+id;
 		try {
 			ResultSet rs = this.db.query(sql);
 			if (rs.next()) {

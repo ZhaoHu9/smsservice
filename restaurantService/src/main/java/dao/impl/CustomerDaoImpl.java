@@ -37,7 +37,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			ResultSet rs = this.db.query(sql);
 			List<Customer> list = new ArrayList<Customer>();
 			while(rs.next()) {
-				list.add(new Customer(rs.getInt("curid"), rs.getString("curname"), rs.getString("cuesex"), rs.getInt("curphone")));
+				list.add(new Customer(rs.getInt("curid"), rs.getString("curname"), rs.getString("cursex"), rs.getInt("curphone")));
 			}
 			return list;
 		} catch (SQLException e) {
@@ -53,7 +53,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		this.db = new DBUtil();
 		String sql = "insert into customer values(?,?,?,?)";
 		try {
-			int i = this.db.update(sql, c.getCurid(),c.getCurname(),c.getCuesex(),c.getCurphone());
+			int i = this.db.update(sql, c.getCurid(),c.getCurname(),c.getCursex(),c.getCurphone());
 			return i>0;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -70,7 +70,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		try {
 			ResultSet rs = this.db.query(sql);
 			if (rs.next()) {
-				return new Customer(rs.getInt("curid"), rs.getString("curname"), rs.getString("cuesex"), rs.getInt("curphone"));
+				return new Customer(rs.getInt("curid"), rs.getString("curname"), rs.getString("cursex"), rs.getInt("curphone"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -84,9 +84,9 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	public boolean modifyCustomerById(Customer c) {
 		this.db = new DBUtil();
-		String sql ="update Customer set curid=?,cuename=?,cuesex=?curphome=? where curid ="+c.getCurid();
+		String sql ="update Customer set curid=?,curname=?,cursex=?curphome=? where curid ="+c.getCurid();
 		try {
-			int i = this.db.update(sql, c.getCurid(),c.getCurname(),c.getCuesex(),c.getCurphone());
+			int i = this.db.update(sql, c.getCurid(),c.getCurname(),c.getCursex(),c.getCurphone());
 			return i>0;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -10,7 +10,7 @@ public interface CurtBiz {
 	//订单行删除全部信息
 	public String deleteAllCurt();
 	//订单行查询全部信息
-	public Map<Integer, Integer> selectAllCurt();
+	public Map<Integer, Integer> selectAllCurt(int id);
 	//根据id更改物品数量
 	public String updateCurt(int id);
 }

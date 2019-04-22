@@ -1,5 +1,7 @@
 package biz.impl;
 
+import java.util.List;
+
 import admin.Ticket;
 import biz.TicketBiz;
 import dao.TicketDao;
@@ -16,8 +18,8 @@ public class TicketBizImpl implements TicketBiz {
 		this.ticketDao = new TicketDaoImpl();
 	}
 
-	public void printTicket(int id) {
-		this.ticketDao.printTicket(id);
+	public List<Ticket> printTicket() {
+		return this.ticketDao.printTicket();
 	}
 
 	public String addTicket(Ticket t) {

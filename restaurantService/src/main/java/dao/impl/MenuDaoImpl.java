@@ -76,7 +76,7 @@ public class MenuDaoImpl implements MenuDao {
 
 	public Menus findMenuById(int id) {
 		this.db = new DBUtil();
-		String sql = "select * from menu m,price p where (m.typeid = ?) and m.eatid = p.eatid(+)";
+		String sql = "select * from menu m,price p where (m.eatid = ?) and m.eatid = p.eatid(+)";
 		try {
 			ResultSet rs = this.db.query(sql,id);
 			if (rs.next()) {

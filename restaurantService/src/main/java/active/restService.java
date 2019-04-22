@@ -22,7 +22,7 @@ public interface restService {
 	//订单行删除全部信息
 	public String deleteAllCurt();
 	//订单行查询全部信息
-	public Map<Integer, Integer> selectAllCurt();
+	public Map<Integer, Integer> selectAllCurt(int id);
 	//根据id更改物品数量
 	public String updateCurt(int id);
 	//录入员工信息
@@ -87,8 +87,8 @@ public interface restService {
 	public String updateSal(Salnum s);
 	//查询销量是否存在
 	public Salnum selectSal(int id);
-	//打印小票抬头
-	public void printTicket(int id);
+	//打印小票抬头所有
+	public List<Ticket> printTicket();
 	//录入小票抬头
 	public String addTicket(Ticket t);
 	//返回最大id数+1；
