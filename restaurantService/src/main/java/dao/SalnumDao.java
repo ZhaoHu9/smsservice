@@ -11,7 +11,7 @@ public interface SalnumDao {
 	//增加销量
 	public boolean insertSal(Salnum s);
 	//查找id 和销量
-	public boolean findSal(int id);
+	public Salnum findSal(int id);
 	//修改销量
 	public boolean modifySal(Salnum s);
 }

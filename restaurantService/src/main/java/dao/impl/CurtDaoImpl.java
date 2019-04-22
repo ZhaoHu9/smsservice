@@ -11,14 +11,14 @@ import util.DBUtil;
 public class CurtDaoImpl implements CurtDao {
 	private DBUtil db;
 	
-	public boolean insertCurt(int id, Map<Integer, Integer> m) {
+	public boolean insertCurt( Map<Integer, Integer> m) {
 		this.db = new DBUtil();
-		String sql = "insert into curt values(?,?,?)";
+		String sql = "insert into curt values((select max(ticketid) from ticket),?,?)";
 		Set<Integer> key = m.keySet();
 		for (Integer i : key) {
-			Integer value = m.get(i);
+			int i3 = m.get(i);
 			try {
-				int i2 = this.db.update(sql, id,i,value);
+				int i2 = this.db.update(sql,i,i3);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

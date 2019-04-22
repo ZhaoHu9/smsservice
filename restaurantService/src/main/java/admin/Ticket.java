@@ -48,6 +48,33 @@ public class Ticket implements Serializable{
 		this.date = date;
 		this.uuid = uuid;
 	}
+	
+	
+	/**
+	 * @param empid
+	 * @param date
+	 * @param uuid
+	 * @param vipid
+	 */
+	public Ticket(int empid, Date date, UUID uuid, Integer vipid) {
+		super();
+		this.empid = empid;
+		this.date = date;
+		this.uuid = uuid;
+		this.vipid = vipid;
+	}
+	
+	/**
+	 * @param empid
+	 * @param date
+	 * @param uuid
+	 */
+	public Ticket(int empid, Date date, UUID uuid) {
+		super();
+		this.empid = empid;
+		this.date = date;
+		this.uuid = uuid;
+	}
 	public int getId() {
 		return id;
 	}

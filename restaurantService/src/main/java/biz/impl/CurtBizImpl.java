@@ -17,9 +17,9 @@ public class CurtBizImpl implements CurtBiz {
 		this.curtDao = new CurtDaoImpl();
 	}
 
-	public String addCurt(int id, Map<Integer, Integer> m) {
+	public String addCurt(Map<Integer, Integer> m) {
 		
-		return this.curtDao.insertCurt(id, m)?"添加成功":"添加失败";
+		return this.curtDao.insertCurt( m)?"添加成功":"添加失败";
 	}
 
 	public String deleteCurt(int id) {

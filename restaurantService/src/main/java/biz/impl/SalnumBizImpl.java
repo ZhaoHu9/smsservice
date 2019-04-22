@@ -28,7 +28,7 @@ public class SalnumBizImpl implements SalnumBiz {
 		return this.salnumDao.insertSal(s)?"添加成功":"添加失败";
 	}
 
-	public boolean selectSal(int id) {
+	public Salnum selectSal(int id) {
 
 		return this.salnumDao.findSal(id);
 	}

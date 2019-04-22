@@ -4,7 +4,7 @@ import java.util.Map;
 
 public interface CurtDao {
 	//订单行信息增加
-	public boolean insertCurt(int id,Map<Integer, Integer> m);
+	public boolean insertCurt(Map<Integer, Integer> m);
 	//订单行删除信息 根据id
 	public boolean removeCurt(int id);
 	//订单行删除全部信息

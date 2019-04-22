@@ -37,8 +37,8 @@ public class restServiceImpl implements restService{
 	private TypeBiz typeBiz;
 	private VipBiz vipBiz;
 	private Object customerBiztBiz;
-	
-	
+
+
 	/**
 	 * 
 	 */
@@ -54,168 +54,168 @@ public class restServiceImpl implements restService{
 	}
 
 	public Employee login(int id, String password) {
-		
+
 		return this.employeeBiz.login(id, password);
 	}
 
-	public String addCurt(int id, Map<Integer, Integer> m) {
-		
-		return this.curtBiz.addCurt(id, m);
+	public String addCurt( Map<Integer, Integer> m) {
+
+		return this.curtBiz.addCurt( m);
 	}
 
 	public String deleteCurt(int id) {
-		
+
 		return this.curtBiz.deleteCurt(id);
 	}
 
 	public String deleteAllCurt() {
-		
+
 		return this.curtBiz.deleteAllCurt();
 	}
 
 	public Map<Integer, Integer> selectAllCurt() {
-		
+
 		return this.curtBiz.selectAllCurt();
 	}
 
 	public String updateCurt(int id) {
-		
+
 		return this.curtBiz.updateCurt(id);
 	}
 
 	public String addEmployee(Employee e) {
-		
+
 		return this.employeeBiz.addEmployee(e);
 	}
 
 	public String deleteEmployee(int id) {
-		
+
 		return this.employeeBiz.deleteEmployee(id);
 	}
 
 	public String updateEmployee(Employee e) {
-		
+
 		return this.employeeBiz.updateEmployee(e);
 	}
 
 	public Employee selectEmployeeById(int id) {
-		
+
 		return this.employeeBiz.selectEmployeeById(id);
 	}
 
 	public List<Employee> selectAllEmployee() {
-		
+
 		return this.employeeBiz.selectAllEmployee();
 	}
 
 	public List<Customer> selectAllCustimerId() {
-		
+
 		return this.customerBiz.selectAllCustimerId();
 	}
 
 	public List<Customer> selectAllCustimer() {
-		
+
 		return this.customerBiz.selectAllCustimer();
 	}
 
 	public String addCustomer(Customer c) {
-		
+
 		return this.customerBiz.addCustomer(c);
 	}
 
 	public Customer selectCustomerById(int id) {
-		
+
 		return this.customerBiz.selectCustomerById(id);
 	}
 
 	public String updateCustomerById(Customer c) {
-		
+
 		return this.customerBiz.updateCustomerById(c);
 	}
 
 	public String addVip(Vip v) {
-		
+
 		return this.vipBiz.addVip(v);
 	}
 
 	public String deleteVipById(int id) {
-		
+
 		return this.vipBiz.deleteVipById(id);
 	}
 
 	public Vip selectVipById(int id) {
-		
+
 		return this.vipBiz.selectVipById(id);
 	}
 
 	public String updateVipById(Vip v) {
-		
+
 		return this.vipBiz.updateVipById(v);
 	}
 
 	public List<Vip> selectAllVip() {
-		
+
 		return this.vipBiz.selectAllVip();
 	}
 
 	public String addMenu(Menus m) {
-		
+
 		return this.menuBiz.addMenu(m);
 	}
 
 	public String deleteMenu(int id) {
-		
+
 		return this.menuBiz.deleteMenu(id);
 	}
 
 	public String upadteMenu(Menus m) {
-		
+
 		return this.menuBiz.upadteMenu(m);
 	}
 
 	public List<Menus> selectAllMenu() {
-		
+
 		return this.menuBiz.selectAllMenu();
 	}
 
 	public Menus selectMenuById(int id) {
-		
+
 		return this.menuBiz.selectMenuById(id);
 	}
 
 	public List<Salnum> selectAllNum() {
-		
+
 		return this.salnumBiz.selectAllNum();
 	}
 
 	public void printTicket(int id) {
 		this.ticketBiz.printTicket(id);
-		
+
 	}
 
 	public List<Type> selectAllType() {
-		
+
 		return this.typeBiz.selectAllType();
 	}
 
 	public Type selectTypeById(int id) {
-		
+
 		return this.typeBiz.selectTypeById(id);
 	}
 
 	public List<Menus> selectAllMuByTp(int id) {
-		
+
 		return this.menuBiz.selectAllMuByTp(id);
 	}
 
 
 	public String deleteCustomer(int id) {
-		
+
 		return this.customerBiz.deleteCustomerById(id);
 	}
 
 	public String addTicket(Ticket t) {
-	
+
 		return this.ticketBiz.addTicket(t);
 	}
 
@@ -235,7 +235,7 @@ public class restServiceImpl implements restService{
 		return this.salnumBiz.updateSal(s);
 	}
 
-	public boolean selectSal(int id) {
+	public Salnum selectSal(int id) {
 
 		return this.salnumBiz.selectSal(id);
 	}
@@ -254,5 +254,5 @@ public class restServiceImpl implements restService{
 
 		return this.typeBiz.deleteTypeById(id);
 	}
-	
+
 }

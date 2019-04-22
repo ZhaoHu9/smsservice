@@ -13,12 +13,12 @@ public class SalnumDaoImpl implements SalnumDao {
 	private DBUtil db;
 	public List findAllNum() {
 		this.db = new DBUtil();
-		String sql ="select * from salnum order by salnum";
+		String sql ="select m.eatname,s.salnum from salnum s,menu m where m.eatid = s.eatid order by s.salnum desc";
 		try {
 			ResultSet rs = this.db.query(sql);
 			List list = new ArrayList();
 			while(rs.next()){
-				list.add(rs.getInt("eatid"),rs.getInt("eatnum"));
+				list.add(rs.getString("eatname")+"\t"+rs.getInt("salnum"));
 			}
 			return list;
 		} catch (SQLException e) {
@@ -41,19 +41,22 @@ public class SalnumDaoImpl implements SalnumDao {
 			this.db.closed();
 		}
 	}
-	public boolean findSal(int id) {
+	public Salnum findSal(int id) {
 		this.db = new DBUtil();
-		String sql ="select salnum from salnum where eatid="+id;
+		String sql ="select * from salnum where eatid="+id;
 		try {
 			ResultSet rs = this.db.query(sql);
-			return rs.next();
+			if (rs.next()) {
+				return new Salnum(rs.getInt("eatid"), rs.getInt("salnum"));
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return false;
+			return null;
 		}finally {
 			this.db.closed();
 		}
+		return null;
 	}
 	public boolean modifySal(Salnum s) {
 		this.db = new DBUtil();

@@ -13,9 +13,9 @@ public class VipDaoImpl implements VipDao {
 	private DBUtil db;
 	public boolean insertVip(Vip v) {
 		this.db = new DBUtil();
-		String sql = "insert into viptable values(序列,?,?,?,?,?)";
+		String sql = "insert into viptable values(?,?,?,?,?,?)";
 		try {
-			int i = this.db.update(sql, v.getCurid(),v.getViplevel(),v.getVipstate(),v.getVipdiscount(),v.getVipdalance());
+			int i = this.db.update(sql,v.getVipid(), v.getCurid(),v.getViplevel(),v.getVipstate(),v.getVipdiscount(),v.getVipdalance());
 			return i>0;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -47,7 +47,7 @@ public class VipDaoImpl implements VipDao {
 		try {
 			ResultSet rs = this.db.query(sql);
 			if (rs.next()) {
-				return new Vip(rs.getInt("vipid"), rs.getInt("curid"), rs.getInt("viplevel"), rs.getInt("vipstate"), rs.getInt("vipdiscount"),rs.getDouble("vipdalance"));
+				return new Vip(rs.getInt("vipid"), rs.getInt("curid"), rs.getInt("viplevel"), rs.getInt("vipstate"), rs.getDouble("vipdiscount"),rs.getDouble("vipdalance"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

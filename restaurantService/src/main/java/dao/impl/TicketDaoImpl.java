@@ -29,11 +29,19 @@ public class TicketDaoImpl implements TicketDao {
 	}
 	public boolean insertTicket(Ticket t) {
 		this.db = new DBUtil();
-		String sql = "insert into ticket valuse(?,?,?,?,?)";
+		String sql = "insert into ticket values(seq_tic.nextval,?,to_date(?,'yyyy-mm-dd hh24:mi:ss'),?,?)";
 		try {
-			java.sql.Date s = new java.sql.Date(t.getDate().getTime());
-			int i = this.db.update(sql, t.getId(),t.getEmpid(),s,t.getUuid(),t.getVipid());
-			return i>0;
+			SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			int i;
+			if(t.getVipid() != 0) {
+				String str = t.getUuid().toString().replaceAll("-", "");
+				i = this.db.update(sql,t.getEmpid(),sd.format(t.getDate()),str,t.getVipid());
+				return i>0;
+			}else if (t.getVipid() == 0) {
+				String id = t.getUuid().toString().replaceAll("-", "");
+				i = this.db.update(sql, t.getId(),t.getEmpid(),sd.format(t.getDate()),id);
+				return i>0;
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -41,6 +49,7 @@ public class TicketDaoImpl implements TicketDao {
 		}finally {
 			this.db.closed();
 		}
+		return false;
 	}
 	public Ticket findTicketById(int id) {
 		this.db = new DBUtil();

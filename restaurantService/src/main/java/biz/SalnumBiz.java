@@ -10,7 +10,7 @@ public interface SalnumBiz {
 	//增加销量
 	public String addSal(Salnum s);
 	//查询销量是否存在
-	public boolean selectSal(int id);
+	public Salnum selectSal(int id);
 	//更改销量
 	public String updateSal(Salnum s);
 }

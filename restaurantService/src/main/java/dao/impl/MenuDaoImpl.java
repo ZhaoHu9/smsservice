@@ -12,10 +12,12 @@ public class MenuDaoImpl implements MenuDao {
 	private DBUtil db;
 	public boolean insertMenu(Menus m) {
 		this.db = new DBUtil();
-		String sql = "insert into menu values(?,?,?,?,?)";
+		String sql = "insert into menu values(seq_menu.nextval,?,?,?,?)";
+		String sql2 = "insert into price values(seq_menu.currval,?)";
 		try {
-			int i = this.db.update(sql, m.getEatid(),m.getEatname(),m.getTypeid(),m.getEatlevel(),m.getEatstock());
-			return i>0;
+			int i = this.db.update(sql,m.getEatname(),m.getTypeid(),m.getEatlevel(),m.getEatstock());
+			int i2 = this.db.update(sql2,m.getEatprice());
+			return i>0 & i2>0;
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -27,7 +29,7 @@ public class MenuDaoImpl implements MenuDao {
 
 	public boolean removeMenu(int id) {
 		this.db = new DBUtil();
-		String sql = "delete from menu where eatid = "+id;
+		String sql = "update menu set eatlevel = 0 where eatid = "+id;
 		try {
 			int i = this.db.update(sql);
 			return i>0;

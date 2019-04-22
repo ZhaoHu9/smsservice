@@ -16,7 +16,7 @@ public interface restService {
 	//登录
 	public Employee login(int id,String password);
 	//订单行信息增加
-	public String addCurt(int id,Map<Integer, Integer> m);
+	public String addCurt(Map<Integer, Integer> m);
 	//订单行删除信息 根据id
 	public String deleteCurt(int id);
 	//订单行删除全部信息
@@ -86,7 +86,7 @@ public interface restService {
 	//更改销量
 	public String updateSal(Salnum s);
 	//查询销量是否存在
-	public boolean selectSal(int id);
+	public Salnum selectSal(int id);
 	//打印小票抬头
 	public void printTicket(int id);
 	//录入小票抬头
